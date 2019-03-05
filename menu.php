@@ -28,7 +28,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="articulos.php">
                   <i class="fas fa-folder-plus"></i>Articulos
                   </a>
                 </li>

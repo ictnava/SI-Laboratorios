@@ -7,7 +7,8 @@ body{
     max-width: 1600px;
     width: 100%;
     margin: 0 auto;
-    text-align: center; 
+    text-align: center;
+    padding: 0%;
 }
 
 /*CSS Menu*/
@@ -125,7 +126,7 @@ body{
     -ms-transition: all 1s ease;
     transition: all 1s ease;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 900px) {
     .nav-side-menu {
         position: relative;
         width: 100%;
@@ -139,7 +140,7 @@ body{
         top: 10px;
         z-index: 10 !important;
         padding: 3px;
-        background-color: #ffffff;
+        background-color: #23282e;
         color: #000;
         width: 40px;
         text-align: center;
@@ -151,9 +152,55 @@ body{
         line-height: 50px !important;
     }
     }
-    @media (min-width: 767px) {
+    @media (min-width: 900px) {
     .nav-side-menu .menu-list .menu-content {
         display: block;
     }
     }
 /**/
+#formLogin{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+#divIndex, #divArticulo{
+    width: 78%;
+    margin: 0 auto;
+    padding: 0%;
+}
+
+#divIndex h1, #divArticulo h2{
+    color: #08B2E3;
+    margin-top: 1%;
+}
+
+#infoRegUsu{
+    color: #EE6352;
+    padding: 2%;
+}
+
+#divArticulo form{
+    padding: 2%;
+}
+
+@media (min-width: 900px)
+{
+    #divIndex{
+        margin-left: 22%;
+    }
+    #divArticulo{
+        margin-left: 22%;
+    }
+}
+
+@media (max-width: 900px)
+{
+    #divIndex{
+        margin: 0 auto;
+    }
+
+    #divArticulo{
+        margin: 0 auto;
+    }
+}

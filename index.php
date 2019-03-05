@@ -1,3 +1,6 @@
+<?php 
+    include("validacionUsuario.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,6 +12,9 @@
 </head>
 <body>
     <?php include("menu.php"); ?>
-    <div><h2>Resto del contenido</h2></div>
+    <div id="divIndex">
+        <h1>Bienvenido al sistema</h1>
+        <a href="salir.php">Salir...</a>
+    </div>
 </body>
 </html>

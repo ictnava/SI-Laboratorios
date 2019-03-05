@@ -10,18 +10,8 @@
         $bd = new BaseDatos();
         $bd->conectar();
         if(!$bd->getConexion())
-            echo "No fue Posible acceder a la base de datos". mysqli_error($conn);
-        //validar si lo que se envió fue el email con el arroba
-        if(filter_var($usuarioo, FILTER_VALIDATE_EMAIL))
-        {
-            //consultaEmail
-            $qry = "SELECT Nombres FROM usuario WHERE Email= :usuario and contrasena= :contradecrypt";
-        }
-        else
-        {
-            //consultaId
-            $qry = "SELECT Nombres FROM usuario WHERE idUsuario= :usuario and contrasena= :contradecrypt";
-        }
+            echo "No fue Posible acceder a la base de datos";
+        $qry = "SELECT CONCAT(Nombres, ' ', ApPaterno, ' ', ApMaterno) AS Nombre FROM alumno WHERE ClaveUnica= :usuario and Contrasena= :contradecrypt";
         $sentencia = $bd->getConexion()->prepare($qry);
         $rs = $sentencia->execute(array(':usuario' => $usuarioo, ':contradecrypt' => $contraseña));
         //Si Existen Usuarios
@@ -29,11 +19,13 @@
         {
             $datos = $sentencia->fetchObject();
             //almacenar los datos en el arreglo session
-            $_SESSION['id'] = $usuarioo;
-            $_SESSION['Nombres'] = $datos->Nombres;
+            $_SESSION['clave'] = $usuarioo;
+            $_SESSION['Nombre'] = $datos->Nombre;
             $bd->desconectar();
-            if($_SESSION['Nombres']!=null)
-                header("Location:acceso.php");
+            if($_SESSION['Nombre']!=null)
+            {
+                header("Location:index.php");
+            }
             else
                 header("Location:login.php?msg=Usuario o Contraseña no coinciden");
         }
@@ -51,13 +43,14 @@
     <title>Login Laboratorios UASLP</title>
 </head>
 <body>
+    <?php include("menu.php"); ?>
     <!--Form de Acceso-->
     <div id="formLogin">
         <form action="login.php" method="post">
             <fieldset>
                 <div>
                     <div>
-                        <label for="logUs">Clave de usuario o Email: </label>
+                        <label for="logUs">Clave del alumno: </label>
                     </div>
                     <div>
                         <input type="text" id="logUs" maxlength="40" name="logUs" required>
