@@ -11,7 +11,7 @@
         $bd->conectar();
         if(!$bd->getConexion())
             echo "No fue Posible acceder a la base de datos";
-        $qry = "SELECT CONCAT(Nombre, ' ', ApellidoP, ' ', ApellidoM) AS Nombre FROM becario WHERE Usuario= :usuario and Contrasena= :contradecrypt";
+        $qry = "SELECT CONCAT(Nombre, ' ', ApPaterno, ' ', ApMaterno) AS Nombre FROM becarios WHERE Usuario= :usuario and Contrasena= :contradecrypt";
         $sentencia = $bd->getConexion()->prepare($qry);
         $rs = $sentencia->execute(array(':usuario' => $usuarioo, ':contradecrypt' => $contraseña));
         //Si Existen Usuarios

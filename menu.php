@@ -7,7 +7,7 @@
             <ul id="menu-content" class="menu-content collapse out">
                 <li>
                   <a href="Becarios.php">
-                  <i class="fas fa-flask"></i>Becarios
+                  <i class="fas fa-users"></i>Becarios
                   </a>
                 </li>
                 <li>
@@ -29,17 +29,11 @@
                   <i class="fas fa-cash-register"></i>Inventario
                   </a>
                 </li>
-                <li>
-                  <a href="Anuncio.php">
-                  <i class="fas fa-sign"></i>Anuncios
-                  </a>
-                </li>
-
                 <li  data-toggle="collapse" data-target="#anuncio" class="collapsed">
-                  <a href="#"><i class="fas fa-user-graduate"></i>Anuncio<i class="fas fa-sort-down"></i></a>
+                  <a href="#"><i class="fas fa-images"></i>Anuncio<i class="fas fa-sort-down"></i></a>
                 </li>
                 <ul class="sub-menu collapse" id="anuncio">
-                    <li><a href="#"><i class="fas fa-user-plus"></i>Alta de Anuncios</a></li>
+                    <li><a href="Altaanuncios.php"><i class="fas fa-image"></i>Alta de Anuncios</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Consulta de Anuncio</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Reporte Anuncios Mes</a></li>
                 </ul>
