@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-03-2019 a las 06:17:29
--- Versión del servidor: 10.1.36-MariaDB
--- Versión de PHP: 7.2.10
+-- Tiempo de generación: 13-03-2019 a las 02:36:02
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bdsi`
 --
-CREATE DATABASE IF NOT EXISTS `bdsi` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `bdsi`;
 
 -- --------------------------------------------------------
 
@@ -36,17 +34,15 @@ CREATE TABLE `alumno` (
   `ApPaterno` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `ApMaterno` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `Carrera` varchar(40) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `Generacion` int(11) NOT NULL,
-  `Usuario` tinyint(1) NOT NULL,
-  `Contrasena` varchar(40) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL
+  `Generacion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `alumno`
 --
 
-INSERT INTO `alumno` (`ClaveUnica`, `Nombres`, `ApPaterno`, `ApMaterno`, `Carrera`, `Generacion`, `Usuario`, `Contrasena`) VALUES
-(232602, 'Claudio Isauro', 'Nava', 'Torres', 'Informática', 2014, 1, '123');
+INSERT INTO `alumno` (`ClaveUnica`, `Nombres`, `ApPaterno`, `ApMaterno`, `Carrera`, `Generacion`) VALUES
+(232602, 'Claudio Isauro', 'Nava', 'Torres', 'Informática', 2014);
 
 -- --------------------------------------------------------
 
@@ -56,10 +52,11 @@ INSERT INTO `alumno` (`ClaveUnica`, `Nombres`, `ApPaterno`, `ApMaterno`, `Carrer
 
 CREATE TABLE `anuncio` (
   `IdAnuncio` bigint(20) NOT NULL,
-  `ClaveLab` bigint(20) NOT NULL,
-  `Imagen` longblob NOT NULL,
+  `IdLaboratorio` bigint(20) NOT NULL,
+  `Imagen` varchar(200) NOT NULL,
   `Fecha` date NOT NULL,
-  `Hora` time NOT NULL
+  `Hora` time NOT NULL,
+  `IdBecario` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -85,12 +82,29 @@ INSERT INTO `articulo` (`IdArticulo`, `Nombre`, `Descripcion`, `NumUASLP`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `becarios`
+--
+
+CREATE TABLE `becarios` (
+  `IdBecarios` bigint(20) NOT NULL,
+  `Nombre` varchar(50) DEFAULT NULL,
+  `ApPaterno` varchar(50) DEFAULT NULL,
+  `ApMaterno` varchar(50) DEFAULT NULL,
+  `Usuario` varchar(50) DEFAULT NULL,
+  `Contrasena` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `inventario`
 --
 
 CREATE TABLE `inventario` (
   `ClaveLab` bigint(20) NOT NULL,
-  `IdArticulo` bigint(20) NOT NULL
+  `IdArticulo` bigint(20) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `NoLocal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -133,7 +147,8 @@ ALTER TABLE `alumno`
 --
 ALTER TABLE `anuncio`
   ADD PRIMARY KEY (`IdAnuncio`) USING BTREE,
-  ADD KEY `ClaveLab` (`ClaveLab`) USING BTREE;
+  ADD KEY `ClaveLab` (`IdLaboratorio`) USING BTREE,
+  ADD KEY `Becario` (`IdBecario`);
 
 --
 -- Indices de la tabla `articulo`
@@ -141,6 +156,12 @@ ALTER TABLE `anuncio`
 ALTER TABLE `articulo`
   ADD PRIMARY KEY (`IdArticulo`) USING BTREE,
   ADD UNIQUE KEY `NumUASLP` (`NumUASLP`) USING BTREE;
+
+--
+-- Indices de la tabla `becarios`
+--
+ALTER TABLE `becarios`
+  ADD PRIMARY KEY (`IdBecarios`);
 
 --
 -- Indices de la tabla `inventario`
@@ -185,6 +206,12 @@ ALTER TABLE `articulo`
   MODIFY `IdArticulo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `becarios`
+--
+ALTER TABLE `becarios`
+  MODIFY `IdBecarios` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `laboratorio`
 --
 ALTER TABLE `laboratorio`
@@ -198,7 +225,8 @@ ALTER TABLE `laboratorio`
 -- Filtros para la tabla `anuncio`
 --
 ALTER TABLE `anuncio`
-  ADD CONSTRAINT `anuncio_ibfk_1` FOREIGN KEY (`ClaveLab`) REFERENCES `laboratorio` (`ClaveLab`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `anuncio_ibfk_1` FOREIGN KEY (`IdLaboratorio`) REFERENCES `laboratorio` (`ClaveLab`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `anuncio_ibfk_2` FOREIGN KEY (`IdBecario`) REFERENCES `becarios` (`IdBecarios`);
 
 --
 -- Filtros para la tabla `inventario`
