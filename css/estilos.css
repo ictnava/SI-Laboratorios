@@ -204,3 +204,8 @@ body{
         margin: 0 auto;
     }
 }
+
+#divTablaBeca, #divTablaLab{
+    width: 70%;
+    margin: 2% auto;
+}

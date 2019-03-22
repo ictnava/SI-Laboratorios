@@ -10,7 +10,6 @@
                   <i class="fas fa-users"></i>Becarios
                   </a>
                 </li>
-                <li>
                 <li  data-toggle="collapse" data-target="#products" class="collapsed">
                   <a href="#"><i class="fas fa-user-graduate"></i>Alumnos<i class="fas fa-sort-down"></i></a>
                 </li>
