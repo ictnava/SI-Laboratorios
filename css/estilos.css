@@ -164,13 +164,13 @@ body{
     margin-top: 10%;
 }
 
-#divIndex, #divArticulo{
+#divIndex, #divArticulo, #divFormEntr, #divConsEntrad{
     width: 78%;
     margin: 0 auto;
     padding: 0%;
 }
 
-#divIndex h1, #divArticulo h2{
+#divIndex h1, #divArticulo h2, #divFormEntr h2, #divConsEntrad h2{
     color: #08B2E3;
     margin-top: 1%;
 }
@@ -186,7 +186,7 @@ body{
 
 @media (min-width: 900px)
 {
-    #divIndex{
+    #divIndex, #divFormEntr, #divConsEntrad{
         margin-left: 22%;
     }
     #divArticulo{
@@ -200,7 +200,7 @@ body{
         margin: 0 auto;
     }
 
-    #divArticulo{
+    #divArticulo, #divFormEntr, #divConsEntrad{
         margin: 0 auto;
     }
 }
@@ -208,4 +208,10 @@ body{
 #divTablaBeca, #divTablaLab{
     width: 70%;
     margin: 2% auto;
+}
+
+#divFormEntr form{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5%;
 }

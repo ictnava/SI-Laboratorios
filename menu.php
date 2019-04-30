@@ -14,13 +14,13 @@
                   <a href="#"><i class="fas fa-user-graduate"></i>Alumnos<i class="fas fa-sort-down"></i></a>
                 </li>
                 <ul class="sub-menu collapse" id="products">
-                    <li><a href="#"><i class="fas fa-user-plus"></i>Registro de Entrada</a></li>
-                    <li><a href="#"><i class="fas fa-search"></i>Consulta de Entradas</a></li>
+                    <li><a href="regEntrada.php"><i class="fas fa-user-plus"></i>Registro de Entrada</a></li>
+                    <li><a href="consultaEntradas.php"><i class="fas fa-search"></i>Consulta de Entradas</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Reporte Entradas Mes</a></li>
                 </ul>
                 <li>
                   <a href="Laboratorios.php">
-                  <i class="fas fa-flask"></i>Laboratorio
+                  <i class="fas fa-flask"></i>Laboratorios
                   </a>
                 </li>
                 <li>
