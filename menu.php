@@ -1,3 +1,7 @@
+<?php
+  include("barraEstado.php");
+?>
+
 <div class="nav-side-menu">
     <div class="brand"><img src="img/LogoUASLP.png" class="img-fluid" alt="Responsive image">Laboratorios UASLP</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>

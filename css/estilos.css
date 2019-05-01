@@ -193,6 +193,10 @@ body{
     #divArticulo, #divEntradasMes, #divGrafEntrds{
         margin-left: 22%;
     }
+    #brEstadNom
+    {
+        display: block;
+    }
 }
 
 @media (max-width: 900px)
@@ -203,6 +207,11 @@ body{
 
     #divArticulo, #divFormEntr, #divConsEntrad, #divEntradasMes{
         margin: 0 auto;
+    }
+
+    #brEstadNom
+    {
+        display: none;
     }
 }
 
@@ -225,4 +234,19 @@ body{
 {
     width: 80%;
     margin: 5% auto;
+}
+
+#iusuario{
+    color: white !important;
+    font-size: 2rem;
+}
+
+#btnSalir{
+    background-color: #23282e !important; 
+    text-decoration: underline wavy white; 
+    border-color: #23282e !important;
+}
+
+#btnSalir:hover{
+    text-decoration: underline  white;
 }

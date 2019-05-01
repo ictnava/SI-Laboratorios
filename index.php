@@ -14,7 +14,7 @@
     <?php include("menu.php"); ?>
     <div id="divIndex">
         <h1>Bienvenido al sistema</h1>
-        <a href="salir.php">Salir...</a>
+        <img src="img/ImgInicio.PNG" class="img-fluid" alt="Imagen de Inicio">
     </div>
 </body>
 </html>
