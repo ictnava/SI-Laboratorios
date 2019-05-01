@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Clave Laboratorio: </label>
+                <label class="col-sm-4 col-form-label">Laboratorio: </label>
                 <div class="col-sm-6">
                 <select class="form-control" name="claveLab">
                 <?php
@@ -48,14 +48,14 @@
                         $bd->conectar();
                         if(!$bd->getConexion())
                             echo "Error al procesar la petición :( ";
-                        $qry = "SELECT ClaveLab FROM laboratorio";
+                        $qry = "SELECT ClaveLab, NombreLab FROM laboratorio";
                         $sentencia = $bd->getConexion()->prepare($qry);
                         $rs = $sentencia->execute();
                         if(!$rs)
                             print_r($sentencia->errorInfo());
                         while( $datos= $sentencia->fetchObject())
                         {
-                            echo "<option>" . $datos->ClaveLab . "</option>";
+                            echo "<option value='".$datos->ClaveLab."'>" . $datos->NombreLab . "</option>";
                         }
                         $bd->desconectar();
                     ?>
@@ -65,15 +65,16 @@
             <div class="form-group row">
             <label class="col-sm-4 col-form-label">Fecha: </label>
                 <div class="col-sm-6">
-                    <input type="date" required name="fecha">
+                    <input type="date" required name="fecha" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
             <label class="col-sm-4 col-form-label">Hora: </label>
                 <div class="col-sm-6">
-                    <input type="time" required name="hora">
+                    <input type="time" required name="hora" class="form-control">
                 </div>
             </div>
+            <br>
             <div class="form-group row">
                 <div class="col-sm-12">
                     <input type="submit" value="Registrar" class="btn btn-info">

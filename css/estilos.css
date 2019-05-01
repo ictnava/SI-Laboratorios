@@ -164,13 +164,14 @@ body{
     margin-top: 10%;
 }
 
-#divIndex, #divArticulo, #divFormEntr, #divConsEntrad{
+#divIndex, #divArticulo, #divFormEntr, #divConsEntrad, #divEntradasMes,
+#divGrafEntrds{
     width: 78%;
     margin: 0 auto;
     padding: 0%;
 }
 
-#divIndex h1, #divArticulo h2, #divFormEntr h2, #divConsEntrad h2{
+#divIndex h1, #divArticulo h2, #divFormEntr h2, #divConsEntrad h2, #divEntradasMes h2{
     color: #08B2E3;
     margin-top: 1%;
 }
@@ -189,18 +190,18 @@ body{
     #divIndex, #divFormEntr, #divConsEntrad{
         margin-left: 22%;
     }
-    #divArticulo{
+    #divArticulo, #divEntradasMes, #divGrafEntrds{
         margin-left: 22%;
     }
 }
 
 @media (max-width: 900px)
 {
-    #divIndex{
+    #divIndex, #divGrafEntrds{
         margin: 0 auto;
     }
 
-    #divArticulo, #divFormEntr, #divConsEntrad{
+    #divArticulo, #divFormEntr, #divConsEntrad, #divEntradasMes{
         margin: 0 auto;
     }
 }
@@ -210,8 +211,18 @@ body{
     margin: 2% auto;
 }
 
-#divFormEntr form{
+#divFormEntr form, #divEntradasMes form{
     width: 80%;
     margin: 0 auto;
     margin-top: 5%;
+}
+
+#divGrafEntrds{
+    padding: 6%; 
+}
+
+#avisoPDF
+{
+    width: 80%;
+    margin: 5% auto;
 }

@@ -16,7 +16,7 @@
                 <ul class="sub-menu collapse" id="products">
                     <li><a href="regEntrada.php"><i class="fas fa-user-plus"></i>Registro de Entrada</a></li>
                     <li><a href="consultaEntradas.php"><i class="fas fa-search"></i>Consulta de Entradas</a></li>
-                    <li><a href="#"><i class="fas fa-search"></i>Reporte Entradas Mes</a></li>
+                    <li><a href="reporteEntrMes.php"><i class="fas fa-search"></i>Reporte Entradas Mes</a></li>
                 </ul>
                 <li>
                   <a href="Laboratorios.php">
