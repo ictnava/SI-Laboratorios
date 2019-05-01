@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-03-2019 a las 02:36:02
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.0
+-- Tiempo de generación: 02-05-2019 a las 00:13:57
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bdsi`
 --
+CREATE DATABASE IF NOT EXISTS `bdsi` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `bdsi`;
 
 -- --------------------------------------------------------
 
@@ -42,7 +44,8 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`ClaveUnica`, `Nombres`, `ApPaterno`, `ApMaterno`, `Carrera`, `Generacion`) VALUES
-(232602, 'Claudio Isauro', 'Nava', 'Torres', 'Informática', 2014);
+(232602, 'Claudio Isauro', 'Nava', 'Torres', 'Informática', 2014),
+(250980, 'Nestor Javier', 'Mendez', 'Gutierrez', 'Informática', 2015);
 
 -- --------------------------------------------------------
 
@@ -77,7 +80,8 @@ CREATE TABLE `articulo` (
 --
 
 INSERT INTO `articulo` (`IdArticulo`, `Nombre`, `Descripcion`, `NumUASLP`) VALUES
-(1, 'Teclado', 'Un teclado cualquiera', 254565);
+(1, 'Teclado', 'Un teclado cualquiera', 254565),
+(2, 'mouse', 'Prueba', 5);
 
 -- --------------------------------------------------------
 
@@ -93,6 +97,15 @@ CREATE TABLE `becarios` (
   `Usuario` varchar(50) DEFAULT NULL,
   `Contrasena` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `becarios`
+--
+
+INSERT INTO `becarios` (`IdBecarios`, `Nombre`, `ApPaterno`, `ApMaterno`, `Usuario`, `Contrasena`) VALUES
+(1, 'Isauro', 'Nava', 'Torres', '232602', '123'),
+(2, 'Nestor', 'Mendez', 'Gutierrez', '250980', '123'),
+(3, 'Antonio', 'Tristan', 'Varela', '236042', '123');
 
 -- --------------------------------------------------------
 
@@ -119,6 +132,14 @@ CREATE TABLE `laboratorio` (
   `Area` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `laboratorio`
+--
+
+INSERT INTO `laboratorio` (`ClaveLab`, `NombreLab`, `Area`) VALUES
+(1, 'UDIs', 'Ciencias de la ComputaciÃ³n'),
+(2, 'Redes y TelemÃ¡tica', 'Ciencias de la ComputaciÃ³n');
+
 -- --------------------------------------------------------
 
 --
@@ -131,6 +152,15 @@ CREATE TABLE `registro_alumno` (
   `Fecha` date NOT NULL,
   `Hora` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `registro_alumno`
+--
+
+INSERT INTO `registro_alumno` (`ClaveUnica`, `ClaveLab`, `Fecha`, `Hora`) VALUES
+(232602, 1, '2019-05-01', '01:00:00'),
+(232602, 2, '2019-05-01', '17:00:00'),
+(232602, 2, '2019-05-02', '16:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -161,7 +191,8 @@ ALTER TABLE `articulo`
 -- Indices de la tabla `becarios`
 --
 ALTER TABLE `becarios`
-  ADD PRIMARY KEY (`IdBecarios`);
+  ADD PRIMARY KEY (`IdBecarios`),
+  ADD UNIQUE KEY `Usuario` (`Usuario`);
 
 --
 -- Indices de la tabla `inventario`
@@ -191,7 +222,7 @@ ALTER TABLE `registro_alumno`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `ClaveUnica` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232603;
+  MODIFY `ClaveUnica` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250981;
 
 --
 -- AUTO_INCREMENT de la tabla `anuncio`
@@ -203,19 +234,19 @@ ALTER TABLE `anuncio`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `IdArticulo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IdArticulo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `becarios`
 --
 ALTER TABLE `becarios`
-  MODIFY `IdBecarios` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdBecarios` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `laboratorio`
 --
 ALTER TABLE `laboratorio`
-  MODIFY `ClaveLab` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `ClaveLab` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
