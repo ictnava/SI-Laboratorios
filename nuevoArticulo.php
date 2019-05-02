@@ -3,7 +3,6 @@
     include("baseDatos.php");
     if(isset($_REQUEST['Nombre']) && isset($_REQUEST['Descripcion']) && isset($_REQUEST['numero']))
     {
-        $bd = new BaseDatos();
         //Conexión a la base de datos
         $bd = new BaseDatos();
         $bd->conectar();
