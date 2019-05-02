@@ -37,7 +37,7 @@
                 </li>
                 <ul class="sub-menu collapse" id="anuncio">
                     <li><a href="Altaanuncios.php"><i class="fas fa-image"></i>Alta de Anuncios</a></li>
-                    <li><a href="#"><i class="fas fa-search"></i>Consulta de Anuncio</a></li>
+                    <li><a href="consultaAnuncios.php"><i class="fas fa-search"></i>Consulta de Anuncios</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Reporte Anuncios Mes</a></li>
                 </ul>
 
