@@ -27,11 +27,15 @@
                   <i class="fas fa-flask"></i>Laboratorios
                   </a>
                 </li>
-                <li>
+                <li data-toggle="collapse" data-target="#inventario" class="collapsed">
                   <a href="#">
-                  <i class="fas fa-cash-register"></i>Inventario
+                  <i class="fas fa-cash-register"></i>Inventario <i  class="fas fa-sort-down"></i>
                   </a>
                 </li>
+                <ul class="sub-menu collapse" id ="inventario">
+                  <li><a href="regInventario.php"><i class="fas fa-user-plus"></i>Agregar a inventario</a></li>
+                  <li><a href="inventario.php"><i class="fas fa-search"></i>Consulta de Entradas</a></li>
+                </ul>
                 <li  data-toggle="collapse" data-target="#anuncio" class="collapsed">
                   <a href="#"><i class="fas fa-images"></i>Anuncio<i class="fas fa-sort-down"></i></a>
                 </li>

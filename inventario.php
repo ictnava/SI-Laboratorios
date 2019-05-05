@@ -8,13 +8,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Consulta de Entradas</title>
+    <title>Consulta de inventario</title>
     <?php include("head.php"); ?>
 </head>
 <body>
     <?php include("menu.php"); ?>
     <div id="divConsEntrad">
-        <h2>Entradas</h2>
+        <h2>Inventario</h2>
             <?php 
                 if(isset($_GET["msg"])):
             ?>
