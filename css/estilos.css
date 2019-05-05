@@ -250,3 +250,8 @@ body{
 #btnSalir:hover{
     text-decoration: underline  white;
 }
+
+.tarjs{
+    width: 35%;
+    margin: 3% auto;
+}
