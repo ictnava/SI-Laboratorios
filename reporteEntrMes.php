@@ -94,7 +94,7 @@
             </div>
         </form>
         <div id="avisoPDF" class="alert alert-info" role="alert">
-            Clic <a href="pdfEntrad.php" class="alert-link">aqui</a> para ver PDF...
+            Clic <a href="crearPDFEntrds.php" class="alert-link" target="_blank">aqui</a> para ver PDF...
         </div>
     </div>
     <div id="divGrafEntrds" class="container">
