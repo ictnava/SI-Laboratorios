@@ -1,10 +1,10 @@
 //recuperar la información del localStorage
 var Periodos = JSON.parse(localStorage.getItem('Periodos'));
 
-function ira()
+/*function ira()
 {
-  window.open("crearPDFEntrds.php?" + Periodos[0].laboratorio);
-}
+  window.open("crearPDFEntrds.php?idL=" + Periodos[0].laboratorio);
+}*/
 
 //seleccionar el laboratorio de acuerdo a la clave
 var select = document.getElementById("selectLab");
@@ -18,7 +18,7 @@ for(var i=1; i<select.length; i++)
 }
 
 // Load google charts
-google.charts.load('current', {'packages':['bar']});
+google.charts.load('current', {'packages':['imagebarchart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
@@ -38,7 +38,7 @@ function drawChart() {
         ['Diciembre', Periodos[11].entradas]
       ]);
 
-      var options = {
+      /*var options = {
         chart: {
           title: 'Entradas al Laboratorio',
           subtitle: 'Año: ' + Periodos[0].anio,
@@ -47,9 +47,11 @@ function drawChart() {
         vAxis: {format: 'decimal'},
         height: 400,
         colors: ['#1B3257']
-      };
+      };*/
 
-    var chart = new google.charts.Bar(document.getElementById('divGrafEntrds'));
+    var chart = new google.visualization.ImageBarChart(document.getElementById('divGrafEntrds'));
 
-    chart.draw(data, google.charts.Bar.convertOptions(options));
+    chart.draw(data, {width: 800, height: 400, min: 0});
+
+    document.querySelector("#hidden_html").innerHTML = document.getElementById('divGrafEntrds').innerHTML;
   }
