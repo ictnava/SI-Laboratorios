@@ -62,18 +62,6 @@
                 </select>
                 </div>
             </div>
-            <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Fecha: </label>
-                <div class="col-sm-6">
-                    <input type="date" required name="fecha" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Hora: </label>
-                <div class="col-sm-6">
-                    <input type="time" required name="hora" class="form-control">
-                </div>
-            </div>
             <br>
             <div class="form-group row">
                 <div class="col-sm-12">

@@ -39,7 +39,8 @@
               if(!$bd->getConexion())
                 echo "Error al procesar la petición :( ";
               $qry = "SELECT ClaveUnica, NombreLab, Fecha, Hora FROM registro_alumno 
-                        INNER JOIN laboratorio ON registro_alumno.ClaveLab = laboratorio.ClaveLab";
+                        INNER JOIN laboratorio ON registro_alumno.ClaveLab = laboratorio.ClaveLab
+                        ORDER BY Fecha DESC";
               $sentencia = $bd->getConexion()->prepare($qry);
               $rs = $sentencia->execute();
               if(!$rs)

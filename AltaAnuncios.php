@@ -47,6 +47,12 @@
                     <input type="file" id="Img" required class="form-control-file" accept="image/*" name="img">
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="Desc" class="col-sm-2 col-form-label">Descripción: </label>
+                <div class="col-sm-4">
+                    <textarea type="file" id="Desc" required class="form-control" rows="3" name="desc"></textarea>
+                </div>
+            </div>
             
             <div class="form-group row">
                 <div class="col-sm-8">

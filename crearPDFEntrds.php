@@ -1,4 +1,7 @@
-<?php 
+<?php
+include("validacionUsuario.php");
+include("baseDatos.php");
+
 # Cargamos la librería dompdf.
 require_once 'dompdf\autoload.inc.php';
 
@@ -12,18 +15,6 @@ $html='
 <title>Ejemplo de Documento en PDF.</title>
 </head>
 <body>
-
-<h2>Ingredientes para la realización de Postres.</h2>
-<p>Ingredientes:</p>
-<dl>
-<dt>Chocolate</dt>
-<dd>Cacao</dd>
-<dd>Azucar</dd>
-<dd>Leche</dd>
-<dt>Caramelo</dt>
-<dd>Azucar</dd>
-<dd>Colorantes</dd>
-</dl>
 
 </body>
 </html>';

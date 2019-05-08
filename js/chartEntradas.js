@@ -1,6 +1,11 @@
 //recuperar la información del localStorage
 var Periodos = JSON.parse(localStorage.getItem('Periodos'));
 
+function ira()
+{
+  window.open("crearPDFEntrds.php?" + Periodos[0].laboratorio);
+}
+
 //seleccionar el laboratorio de acuerdo a la clave
 var select = document.getElementById("selectLab");
 var elementoSelecc = Periodos[0].laboratorio;

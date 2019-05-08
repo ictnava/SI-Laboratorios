@@ -34,7 +34,7 @@
                 </li>
                 <ul class="sub-menu collapse" id ="inventario">
                   <li><a href="regInventario.php"><i class="fas fa-user-plus"></i>Agregar a inventario</a></li>
-                  <li><a href="inventario.php"><i class="fas fa-search"></i>Consulta de Entradas</a></li>
+                  <li><a href="inventario.php"><i class="fas fa-search"></i>Consulta de inventario</a></li>
                 </ul>
                 <li  data-toggle="collapse" data-target="#anuncio" class="collapsed">
                   <a href="#"><i class="fas fa-images"></i>Anuncio<i class="fas fa-sort-down"></i></a>
@@ -42,7 +42,6 @@
                 <ul class="sub-menu collapse" id="anuncio">
                     <li><a href="Altaanuncios.php"><i class="fas fa-image"></i>Alta de Anuncios</a></li>
                     <li><a href="consultaAnuncios.php"><i class="fas fa-search"></i>Consulta de Anuncios</a></li>
-                    <li><a href="#"><i class="fas fa-search"></i>Reporte Anuncios Mes</a></li>
                 </ul>
 
                 <li>

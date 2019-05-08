@@ -2,7 +2,7 @@
     include("validacionUsuario.php");
     include("baseDatos.php");
 
-    if(isset($_REQUEST['lab']))
+    if(isset($_REQUEST['lab']) && isset($_REQUEST['desc']))
     {
         $bd = new BaseDatos();
         $bd->conectar();
@@ -24,17 +24,15 @@
             fclose($fp);
             $contenido = addslashes($contenido);
         }
-        $hoy = getdate();
-        $fecha = $hoy['year'] . "-" . $hoy['mon'] . "-" . $hoy['mday'];
-        $hora = $hoy['hours'] . ":" . $hoy['minutes'] . ":" . $hoy['seconds'];
         $becario = $_SESSION['idbec'];
+        $desc = $_REQUEST['desc'];
 
-        $qry = "INSERT INTO anuncio (IdLaboratorio, Fecha, Hora, IdBecario, Imagen) VALUES (:idlab, :fech, :hra, :idbec, '$contenido')";
+        $qry = "INSERT INTO anuncio (IdLaboratorio, Descripcion, IdBecario, Imagen) VALUES (:idlab, :descr, :idbec, '$contenido')";
         $sentencia = $bd->getConexion()->prepare($qry);
-        $rs = $sentencia->execute(array(':idlab' => $lab, ':fech' => $fecha, ':hra' => $hora, ':idbec' => $becario));
+        $rs = $sentencia->execute(array(':idlab' => $lab, ':descr' => $desc, ':idbec' => $becario));
         if(!$rs)
             echo "Algo salio mal :(" . $sentencia->errorInfo();
-        header("Location:consultaAnuncios.php?msg=Se añadio un anuncio");
+        header("Location:consultaAnuncios.php?msg=Se añadió un anuncio");
     }
     else
     {
