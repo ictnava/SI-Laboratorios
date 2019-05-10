@@ -65,7 +65,7 @@
                         <input type="password" id="logCont" maxlength="20" name="logCont" required>
                     </div>
                 </div>
-                <a href="#">Olvidé mi contraseña</a>
+                <!--<a href="#">Olvidé mi contraseña</a>-->
             </fieldset>
             <input type="submit" value="Acceder" id="btn-login">
         </form>

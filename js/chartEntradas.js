@@ -1,11 +1,6 @@
 //recuperar la información del localStorage
 var Periodos = JSON.parse(localStorage.getItem('Periodos'));
 
-/*function ira()
-{
-  window.open("crearPDFEntrds.php?idL=" + Periodos[0].laboratorio);
-}*/
-
 //seleccionar el laboratorio de acuerdo a la clave
 var select = document.getElementById("selectLab");
 var elementoSelecc = Periodos[0].laboratorio;
@@ -38,20 +33,12 @@ function drawChart() {
         ['Diciembre', Periodos[11].entradas]
       ]);
 
-      /*var options = {
-        chart: {
-          title: 'Entradas al Laboratorio',
-          subtitle: 'Año: ' + Periodos[0].anio,
-        },
-        bars: 'vertical',
-        vAxis: {format: 'decimal'},
-        height: 400,
-        colors: ['#1B3257']
-      };*/
-
     var chart = new google.visualization.ImageBarChart(document.getElementById('divGrafEntrds'));
 
     chart.draw(data, {width: 800, height: 400, min: 0});
-
-    document.querySelector("#hidden_html").innerHTML = document.getElementById('divGrafEntrds').innerHTML;
   }
+
+function enviar()
+{
+  window.open("crearPDFEntrds.php?idL=" + Periodos[0].laboratorio);
+}

@@ -94,23 +94,11 @@
             </div>
         </form>
         <div id="avisoPDF" class="alert alert-info" role="alert">
-            Clic <form method="post" id="make_pdf" action="crearPDFEntrds.php">
-                    <input type="hidden" name="hidden_html" id="hidden_html">
-                    <button type="submit" name="create_pdf" class="btn btn-outline-secondary" onclick="enviar()">aqui </button>
-                </form> para ver PDF...
+        Click <button type="button" name="crearPDF" class="btn btn-outline-secondary" onclick="enviar()">aqui </button> para ver PDF...
         </div>
     </div>
     <div id="divGrafEntrds">
     <div>
     <script src="js/chartEntradas.js"></script>
-    <script src="js/html2canvas.min.js"></script>
-    <div id="inten" style="width: 500px; height:350px;">
-    </div>
-    <script>
-        html2canvas(document.querySelector("#divGrafEntrds")).then(canvas => {
-    document.body.appendChild(canvas)
-});
-    </script>
-    
 </body>
 </html>
