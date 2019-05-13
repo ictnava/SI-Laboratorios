@@ -1,3 +1,4 @@
+
 <?php
     include("validacionUsuario.php");
     include("baseDatos.php");
@@ -6,7 +7,7 @@
     $anio = $hoy['year'];
     $mes = "01";
     $claveLab = 1;
-
+    $nombreimagen = uniqid().'.png';
     //por default siempre aparece el laboratorio con clave 1, a menos de que se cambie
     if(isset($_REQUEST['lab']))
         $claveLab = $_REQUEST['lab'];
@@ -17,13 +18,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="js/loader.js"></script>
     <title>Reporte de entradas por mes</title>
     <?php include("head.php");?>
 </head>
 <body>
+
     <?php 
         include("menu.php");
+        
         //recopilar los datos en javascript para 
         //poder hacer la gráfica, no me gusta ajax
         //porque es inseguro en la parte de las peticiones
@@ -61,9 +63,12 @@
                     window.localStorage.setItem('Periodos', JSON.stringify(Periodos));
             ";
         }
+        
             echo "</script>";
             $bd->desconectar();
+            
     ?>
+    
     <div id="divEntradasMes">
         <h2>Reporte de entradas por mes</h2>
         <form method="post">
@@ -99,6 +104,10 @@
     </div>
     <div id="divGrafEntrds">
     <div>
+        <script>
+         localStorage.setItem("nombre", '<?php echo $nombreimagen ?>'); 
+        </script>
     <script src="js/chartEntradas.js"></script>
+    
 </body>
 </html>

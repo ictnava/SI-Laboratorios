@@ -2,7 +2,7 @@
     include("validacionUsuario.php");
     include("baseDatos.php");
     date_default_timezone_set('America/Mexico_City');
-
+    
     # Cargamos la librería dompdf.
     require_once 'dompdf\autoload.inc.php';
 
@@ -12,6 +12,7 @@
     $claveLab = $_REQUEST['idL'];
     if(isset($_REQUEST['idL'])):
         ?>
+        
         <html>
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,8 +20,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         </head>
         <body>
+            
         <div style="width:90%; margin: 0 auto; text-align:center;">
             <img src="img/uaslp.jpg" class="img-thumbnail" alt="uaslp" style="width: 10%; float:left;">
+            
             <?php
                 $bd = new BaseDatos();
                 $bd->conectar();
@@ -42,8 +45,11 @@
                 $datos = $sentencia->fetchObject();
                 $maxEntrds = $datos->maxEntrds;
             $bd->desconectar();?></h5>
+            
             <img src="img/fi.jpg" class="img-thumbnail" alt="fi" style="width: 5%; float: right; margin-top: -4%;">
         </div>
+        
+
         <div style="width:90%; margin: 0 auto; text-align:center;">
         
         <p style="margin-right: 7%;"><?php echo $fecha; ?></p>
@@ -82,7 +88,10 @@
        
         </tbody>
         </table>
-
+        <div>
+            <img class="img-thumbnail" id="grafica" alt="uaslp" style="width: 50%; float:left;">
+            </div>
+            
         </div>
         </body>
         </html>
@@ -90,7 +99,19 @@
         echo "Algo salió mal :(";
     ?>
     <?php endif;?>
+    <script>
+        var nomb = localStorage.getItem('nombre');
+        var origen = "C:\\Users\\Lenovo\\Downloads\\"+localStorage.getItem('nombre');
+        var destino = "C:\\xampp\\htdocs\\SI-Laboratorios-master\\img\\"+localStorage.getItem('nombre');
+        <?php 
+        $origen = '<script>origen</script>';
+        $destino = "<script>destino</script>";
+        echo $origen;
+        copy($origen,$destino);?>
+                    var n = "..\\Users\\Lenovo\\Downloads\\"+localStorage.getItem('nombre');
+                    document.getElementById('grafica').src = n;
 
+        </script>
     <?php
     # Contenido HTML del documento que queremos generar en PDF.
     
