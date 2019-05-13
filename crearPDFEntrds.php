@@ -10,6 +10,7 @@
     $hoy = getdate();
     $fecha = $hoy['year'] . "-" . $hoy['mon'] . "-" . $hoy['mday'];
     $claveLab = $_REQUEST['idL'];
+    $nombre = "img/".$_REQUEST['nom'];
     if(isset($_REQUEST['idL'])):
         ?>
         
@@ -89,8 +90,8 @@
         </tbody>
         </table>
         <div>
-            <img class="img-thumbnail" id="grafica" alt="uaslp" style="width: 50%; float:left;">
-            </div>
+            <img class="img-thumbnail" src=<?php echo $nombre;?> id="grafica" alt="uaslp" style="width: 100%; float:left;">
+        </div>
             
         </div>
         </body>
@@ -99,19 +100,6 @@
         echo "Algo salió mal :(";
     ?>
     <?php endif;?>
-    <script>
-        var nomb = localStorage.getItem('nombre');
-        var origen = "C:\\Users\\Lenovo\\Downloads\\"+localStorage.getItem('nombre');
-        var destino = "C:\\xampp\\htdocs\\SI-Laboratorios-master\\img\\"+localStorage.getItem('nombre');
-        <?php 
-        $origen = '<script>origen</script>';
-        $destino = "<script>destino</script>";
-        echo $origen;
-        copy($origen,$destino);?>
-                    var n = "..\\Users\\Lenovo\\Downloads\\"+localStorage.getItem('nombre');
-                    document.getElementById('grafica').src = n;
-
-        </script>
     <?php
     # Contenido HTML del documento que queremos generar en PDF.
     
